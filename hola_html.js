@@ -30,7 +30,9 @@ var html=fs.readFileSync("./index.html"); -- programacion syncrona
 
 http.createServer(function(reg,res) {
     fs.readFile("./index.html",function(err,html) {
-        res.write(html);
-        res.end();
+        /** enviando datos en formato json */
+        res.writeHead(200,{"Content-Type":"application/json"});
+        res.write(JSON.stringify({nombre:"Uriel",username:"urieles"}));/** se envia respuesta al cliente, por pedasos */
+        res.end();/** finaliza el canal de comunicacion entre el servidor y el navegador(cliente) */
     });
 }).listen(8080);
