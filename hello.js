@@ -6,7 +6,10 @@
  */
 var http=require("http");
 var manejador=function (solicitud, respuesta) {
-    console("Hola mundo");
+    console.log("Resibimos una peticion");
+    respuesta.end("Hola mundo");
 };
 
-var server=http.createServer(manejador());
+var servidor=http.createServer(manejador);
+
+servidor.listen(8080);
